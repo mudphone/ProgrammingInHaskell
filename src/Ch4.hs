@@ -72,3 +72,17 @@ mult x y z = x*y*z
 
 mult' :: Int -> Int -> Int -> Int
 mult' = \x -> (\y -> (\z -> x*y*z))
+
+
+-- 8
+luhnDouble :: Int -> Int
+luhnDouble x
+  | x2 > 9 = x2 - 9
+  | otherwise = x2
+  where x2 = x * 2
+
+luhn :: Int -> Int -> Int -> Int -> Bool
+luhn a b c d = mod r 10 == 0
+  where c2 = luhnDouble c
+        a2 = luhnDouble a
+        r = a2 + b + c2 + d
